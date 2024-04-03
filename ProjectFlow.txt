@@ -1,0 +1,15 @@
+1. Create project template by executing template.py file
+2. Write the code on setup.py file to import local packages
+3. Create a virtual env, activate it and install the requirements from requirements.txt
+   conda create -n visa python=3.8 -y
+   conda activate visa
+   pip install -r requirements.txt
+4. Do a "pip list" on terminal to make sure you have local packages installed
+5. Sign up to MongoDB Atlas and create a new project by just providing it a name then next next create.
+6. From "Create a deployment" screen, hit "create", Select M0 service keeping other services as default, hit "create deployment"
+7. Setup the username and password and then create user.
+8. Go to "network access" and add ip address - "0.0.0.0/0" so that we can access it from anywhere
+9. "Connect" >> "Drivers" >> {Driver:Python, Version:3.6 or later} >> copy and save the connection string 
+   with you(replace password). >> Done.
+10. Create folder "notebook" >> create file "mongoDB_demo.ipynb" >> select kernal>python kernal>visa >>
+11. Kaggle Data link: https://www.kaggle.com/datasets/moro23/easyvisa-dataset
