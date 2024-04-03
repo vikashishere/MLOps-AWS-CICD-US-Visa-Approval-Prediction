@@ -13,3 +13,5 @@
    with you(replace password). >> Done.
 10. Create folder "notebook" >> create file "mongoDB_demo.ipynb" >> select kernal>python kernal>visa >>
 11. Kaggle Data link: https://www.kaggle.com/datasets/moro23/easyvisa-dataset
+12. Push your data to mongoDB database from your python notebook.
+13. Go to mongoDB Atlas >> Database >> browse collection >> see your data in key value format
