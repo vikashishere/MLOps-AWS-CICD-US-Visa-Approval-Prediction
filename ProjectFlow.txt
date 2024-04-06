@@ -18,3 +18,14 @@
 14. Write the logger file and test it on demo.py
 15. Write the exception file and test it on demo.py
 16. EDA and Feature Engg notebook added.
+17. Before we work on "Data Ingestion" component >> Declare variables within constants.__init__.py file >> 
+    setup a configuration.mongo_db_connections.py file and define the func for mondodb connection >> 
+    Now create a new dir "data_access", then a new file inside named usvisa_data that will use mongo_db_connections.py
+    to connect with DB, fetch data in key-val format and transform that to df >>
+    add code to entity.config_entity.py file till DataIngestionConfig class >>
+    add code to entity.artifact_entity.py file till DataIngestionArtifact class >>
+    add code to components.data_ingestion.py file >> run demo.py (set mongodb connection url first, see next step)
+18. To setup the connection url on mac, open bash terminal and run below command:
+    export MONGODB_URL="mongodb+srv://<username>:<password>...."
+    To setup the connection url on Windos, open env variable setting option and add a new variable:
+    Name: MONGODB_URL, Value = <url>

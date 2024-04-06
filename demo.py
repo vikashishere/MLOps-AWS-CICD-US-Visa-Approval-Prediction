@@ -3,14 +3,22 @@
 
 # logging.info("This is to test the logging config")
 
+# --------------------------------------------------------------------------------
 
 # below code is to check the exception config
-from us_visa.logger import logging
-from us_visa.exception import USvisaException
-import sys
+# from us_visa.logger import logging
+# from us_visa.exception import USvisaException
+# import sys
 
-try:
-    a = 1+'Z'
-except Exception as e:
-    logging.info(e)
-    raise USvisaException(e, sys) from e
+# try:
+#     a = 1+'Z'
+# except Exception as e:
+#     logging.info(e)
+#     raise USvisaException(e, sys) from e
+
+# --------------------------------------------------------------------------------
+
+from us_visa.pipline.training_pipeline import TrainPipeline
+
+pipline = TrainPipeline()
+pipline.run_pipeline()
