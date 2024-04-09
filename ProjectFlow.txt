@@ -33,6 +33,47 @@
 20. Now work on the "Data Validation" component the way we did in step 17 for Data Ingestion. (Workflow mentioned below)
 21. Now work on the "Data Transformation" component the way we did in above step. (add estimator.py to entity folder)
 22. Now work on the "Model Trainer" component the way we did in above step. (add class to estimator.py in entity folder)
+23. Before moving to next component of Model Evaluation, some AWS services setup is needed:
+      * Login to AWS console.
+      * Keep region set as - us-east-1
+      * Go to IAM >> Create new user (name: usvisaproject)
+      * Attach policy >> select AdministratorAccess >> next >> create user
+      * Go to the user >> Security Credentials >> Access Keys >> Create access key
+      * Select CLI >> agree to condition >> next >> Create Access Key >> download csv file
+      * Set env variables with above csv values using below method:
+      ====================================================================================
+         >> Set env var from bash terminal: <<
+         export AWS_ACCESS_KEY_ID="AWS_ACCESS_KEY_ID"
+         export AWS_SECRET_ACCESS_KEY="AWS_SECRET_ACCESS_KEY"
+         >> Check env var from bash terminal: <<
+         echo $AWS_ACCESS_KEY_ID
+         echo $AWS_SECRET_ACCESS_KEY
+
+         >> Set env var from powershell terminal: <<
+         $env:AWS_ACCESS_KEY_ID="AKIAQJW5YJZ2QDCWXTT3"
+         $env:AWS_SECRET_ACCESS_KEY="AWS_SECRET_ACCESS_KEY"
+         >> Check env var from powershell terminal: <<
+         echo $env:AWS_ACCESS_KEY_ID
+         echo $env:AWS_SECRET_ACCESS_KEY
+      ====================================================================================
+      * Now add the access key, secret key, region name to constants.__init__.py
+      * Add us_visa.configuration.aws_connection.py file (To work with AWS S3 service)
+      * Ensure below info in constants.__init__.py file:
+            MODEL_EVALUATION_CHANGED_THRESHOLD_SCORE: float = 0.02
+            MODEL_BUCKET_NAME = "usvisa-model-mlopsproj"
+            MODEL_PUSHER_S3_KEY = "model-registry"
+      * Go to S3 service >> Create bucket >> Region: us-east-1 >> General purpose >>
+        Bucket Name: "usvisa-model-mlopsproj" >> uncheck: "Block all public access" and acknowledge >>
+        Hit Create Bucket
+      * Now a new dir named "cloud_storage" and files within needs to be created for the configurations
+        needed to pull and push model from AWS S3 bucket. 
+      * Inside "entity" dir we will have an "s3_estimator.py" file containing all the func to pull/push
+        data from s3 bucket.
+
+
+
+
+
 
 #### WORKFLOW ####
 *   constant
