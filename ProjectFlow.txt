@@ -50,7 +50,7 @@
          echo $AWS_SECRET_ACCESS_KEY
 
          >> Set env var from powershell terminal: <<
-         $env:AWS_ACCESS_KEY_ID="AKIAQJW5YJZ2QDCWXTT3"
+         $env:AWS_ACCESS_KEY_ID="AWS_ACCESS_KEY_ID"
          $env:AWS_SECRET_ACCESS_KEY="AWS_SECRET_ACCESS_KEY"
          >> Check env var from powershell terminal: <<
          echo $env:AWS_ACCESS_KEY_ID
@@ -69,6 +69,10 @@
         needed to pull and push model from AWS S3 bucket. 
       * Inside "entity" dir we will have an "s3_estimator.py" file containing all the func to pull/push
         data from s3 bucket.
+24. Now we will start our work on "Model Evaluation" and "Model Pusher" component.
+25. Create the code structure of "Prediction Pipeline" and setup your app.py
+26. Add "static" and "template" dir to the project.
+
 
 
 
