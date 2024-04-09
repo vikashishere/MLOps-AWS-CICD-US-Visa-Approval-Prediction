@@ -72,6 +72,37 @@
 24. Now we will start our work on "Model Evaluation" and "Model Pusher" component.
 25. Create the code structure of "Prediction Pipeline" and setup your app.py
 26. Add "static" and "template" dir to the project.
+27. Getting started with CI-CD process:
+      * Setup the dockerfile and .dockerignore file
+      * Setup the .github\workflows dir and aws.yaml file within
+      * Go to AWS console and create a new IAM user exactly the way we did earlier (name: "usvisa-user") >>
+        Go inside user >> Security Credentials >> Access Keys >> create access key >> CLI >> check agreement
+        >> next >> create access key >> download csv
+      * Now create one ECR repo to store/save docker image:
+        AWS console >> Go to ECR >> Region: us-east-1 >> Hit create repository >> visibility: private >>
+        repo name: usvisa >> hit create repository
+      * Now create EC2 Ubuntu server >> AWS console >> EC2 >> Launch Instance >> name: usvisa-machine
+        >> Image: Ubuntu >> AMI: Ubuntu Server 20.04 (free tier) >> Instance: T2 large (~chargeable-12rs/hr)
+        >> create new key pair (name: usvisakey) >> allow for https and http traffic >> storage: 30gb >> Launch
+        >> Go to instance >> click on "Connect" >> Connect using EC2 Instance Connect 
+        >> Connect (Terminal will be launched)
+28. Open EC2 and Install docker in EC2 Machine:
+      ## Optinal
+      sudo apt-get update -y
+      sudo apt-get upgrade
+      ## Required (Because Docker is'nt there in our EC2 server - [docker --version])
+      curl -fsSL https://get.docker.com -o get-docker.sh
+      sudo sh get-docker.sh
+      sudo usermod -aG docker ubuntu
+      newgrp docker
+29. Next step is to connect Github with EC2(Self hosted runner):
+      * select your project on Github >> go to settings >> Actions >> Runner >> New self hosted runner
+        >> Select OS (Linux) >> Now step by step run all "Download" related commands on EC2 server 
+        >> run first "Configure" command (hit enter instead of setting a runner group, runner name: self-hosted)
+        >> enter any additional label (hit enter to skip) >> name of work folder (again hit enter)
+        >> Now run second "Configure" command (./run.sh) and runner will get connected to Github
+        >> To crosscheck, go back to Github and click on Runner and you will see runner state as "idle"
+        >> If you do ctrl+c on EC2 server then runner will shut then restart with "./run.sh"
 
 
 
