@@ -103,7 +103,17 @@
         >> Now run second "Configure" command (./run.sh) and runner will get connected to Github
         >> To crosscheck, go back to Github and click on Runner and you will see runner state as "idle"
         >> If you do ctrl+c on EC2 server then runner will shut then restart with "./run.sh"
-
+30. Setup your Github secrets: (Github project>Settings>SecretandVariable>Actions>NewRepoSecret)
+      AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY
+      AWS_DEFAULT_REGION
+      ECR_REPO
+31. CI-CD pipeline will be triggered at next commit and push.
+32. Now we need to activate the 8080 port of our EC2 instance:
+      * Go to the instance > Security > Go to Security Groups > Edit inbound rules > add rule
+        > type: Custom TCP > Port range: 8080 > 0.0.0.0/0 > Save rules
+33. Now paste the public ip address on the address bar +/8080 and your app will be launched.
+34. You can also do model training on /training route
 
 
 
