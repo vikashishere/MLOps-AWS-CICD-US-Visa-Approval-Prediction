@@ -27,7 +27,7 @@
     add code to components.data_ingestion.py file >> run demo.py (set mongodb connection url first, see next step)
 18. To setup the connection url on mac(also work for windows), open bash terminal and run below command:
     export MONGODB_URL="mongodb+srv://<username>:<password>...."
-    To setup the connection url on Windos, open env variable setting option and add a new variable:
+    To setup the connection url on Windows, open env variable setting option and add a new variable:
     Name: MONGODB_URL, Value = <url>
 19. Complete the work on config.schema.yaml file (add entire info about dataset for data validation step)
 20. Now work on the "Data Validation" component the way we did in step 17 for Data Ingestion. (Workflow mentioned below)
@@ -124,6 +124,6 @@
 *   constant
 *   config_entity
 *   artifact_entity
-*   conponent
+*   component
 *   pipeline
 *   app.py / demo.py
